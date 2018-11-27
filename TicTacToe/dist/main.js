@@ -126,7 +126,7 @@ eval("\nconst MoveError = function (msg) { this.msg = msg; };\n\n// MoveError re
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("const View = __webpack_require__(/*! ./ttt-view.js */ \"./src/ttt-view.js\");// require appropriate file\nconst Game = __webpack_require__(/*! ../solution/game.js */ \"./solution/game.js\");// require appropriate file\n\n  $(() => {\n    // Your code here\n    $el = $('.ttt');\n    let game = new Game();\n    let view = new View(game, $el);\n  });\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("const View = __webpack_require__(/*! ./ttt-view.js */ \"./src/ttt-view.js\");// require appropriate file\nconst Game = __webpack_require__(/*! ../solution/game.js */ \"./solution/game.js\");// require appropriate file\n\n  $(() => {\n    // Your code here\n    $el = $('.ttt');\n    let game = new Game();\n    let view = new View(game, $el);\n    // $el.append(view)\n  });\n  \n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 
@@ -137,7 +137,7 @@ eval("const View = __webpack_require__(/*! ./ttt-view.js */ \"./src/ttt-view.js\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("class View {\n  constructor(game, $el) {}\n\n  bindEvents() {}\n\n  makeMove($square) {}\n\n  setupBoard() {\n    let $board = $('ul');\n    $board.addClass('grid');\n    for (var i = 0; i < 9; i++) {\n      var $square = $('li');\n      $square.addClass('square');\n      $board.append($square);\n    }\n  }\n}\n\nmodule.exports = View;\n\n\n//# sourceURL=webpack:///./src/ttt-view.js?");
+eval("class View {\n  constructor(game, $el) {\n    this.game = game;\n    this.el = $el;\n    $el.append(this.setupBoard());\n    console.log(this)\n  }\n\n  bindEvents() {}\n\n  makeMove($square) {}\n\n  setupBoard() {\n    let $board = $('<ul>');\n    $board.addClass('grid');\n    for (let i = 0; i < 9; i++) {\n      let $square = $('<li>');\n      $square.data('pos', i);\n      $square.addClass('square');\n      $board.append($square);\n    }\n    return $board;\n  }\n}\n\nmodule.exports = View;\n\n\n//# sourceURL=webpack:///./src/ttt-view.js?");
 
 /***/ })
 

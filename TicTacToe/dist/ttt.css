@@ -1,0 +1,29 @@
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  margin: auto;
+}
+.grid {
+  display: flex;
+  width: 330px;
+  height: 340px;
+  flex-wrap: wrap;
+  padding: 5px;
+  background: black;
+  margin: auto;
+}
+
+.square {
+  border: 5px solid black;
+  width: 100px;
+  height: 100px;
+  background: gray;
+  list-style: none;
+}
+
+.square:hover {
+  background: yellow;
+}

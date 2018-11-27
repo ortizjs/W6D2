@@ -1,18 +1,25 @@
 class View {
-  constructor(game, $el) {}
+  constructor(game, $el) {
+    this.game = game;
+    this.el = $el;
+    $el.append(this.setupBoard());
+    console.log(this)
+  }
 
   bindEvents() {}
 
   makeMove($square) {}
 
   setupBoard() {
-    let $board = $('ul');
+    let $board = $('<ul>');
     $board.addClass('grid');
-    for (var i = 0; i < 9; i++) {
-      var $square = $('li');
+    for (let i = 0; i < 9; i++) {
+      let $square = $('<li>');
+      $square.data('pos', i);
       $square.addClass('square');
       $board.append($square);
     }
+    return $board;
   }
 }
 
