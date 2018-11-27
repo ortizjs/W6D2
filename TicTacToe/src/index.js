@@ -6,6 +6,7 @@ const Game = require('../solution/game.js');// require appropriate file
     $el = $('.ttt');
     let game = new Game();
     let view = new View(game, $el);
+    view.bindEvents()
     // $el.append(view)
   });
   

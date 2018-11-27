@@ -6,6 +6,34 @@ body {
 h1 {
   margin: auto;
 }
+
+.x {
+  display: flex;
+  line-height: 85px;
+  align-content: center;
+  justify-content: center;
+  font-size: 100px;
+  border: 5px solid black;
+  width: 100px;
+  height: 100px;
+  background: white;
+  list-style: none;
+  color: black;
+  
+}
+.o {
+  display: flex;
+  line-height: 85px;
+  align-content: center;
+  justify-content: center;
+  font-size: 100px;
+  border: 5px solid black;
+  width: 100px;
+  height: 100px;
+  background: white;
+  list-style: none;
+  color: red;
+}
 .grid {
   display: flex;
   width: 330px;
