@@ -9,16 +9,19 @@ class View {
   bindEvents() {
     let $board = $('ul.grid');
     console.log('hello');
-    $board.on("click", 'li', (e) => {
+    $board.on("click", 'li.square', (e) => {
       let $square = $(e.target);
       if ($square.data('click')) {
         alert('Invalid move! Foo');
       } else {
         this.makeMove($square);
-        $square.text(this.game.currentPlayer);
+        let $mark = $('<marquee>');
+        $mark.text(this.game.currentPlayer);
+        $square.html($mark);
         this.game.playMove($square.data('pos'));
         $square.data('click', true);
         if (this.game.isOver()) {
+          $board.off();
           let $message;
           if (this.game.winner()) {
             $message = $('<h1>');
