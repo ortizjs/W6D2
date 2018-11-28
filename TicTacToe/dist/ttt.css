@@ -7,6 +7,29 @@ h1 {
   margin: auto;
 }
 
+.message {
+  margin: auto;
+}
+
+.winner {
+  display: flex;
+  line-height: 85px;
+  align-content: center;
+  justify-content: center;
+  font-size: 100px;
+  border: 5px solid black;
+  width: 100px;
+  height: 100px;
+  background: green;
+  list-style: none;
+  color: white;
+}
+
+.ttt {
+  display: flex;
+  flex-direction: column;
+}
+
 .x {
   display: flex;
   line-height: 85px;

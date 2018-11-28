@@ -1,7 +1,7 @@
 class View {
   constructor(game, $el) {
     this.game = game;
-    this.el = $el;
+    this.$el = $el;
     $el.append(this.setupBoard());
     console.log(this);
   }
@@ -17,7 +17,29 @@ class View {
         this.makeMove($square);
         $square.text(this.game.currentPlayer);
         this.game.playMove($square.data('pos'));
-        $square.data('click', true)
+        $square.data('click', true);
+        if (this.game.isOver()) {
+          let $message;
+          if (this.game.winner()) {
+            $message = $('<h1>');
+            $message.addClass('message');
+            $message.text(`${this.game.winner()} wins!`);
+            this.$el.append($message);
+            let $winners = $(`.${this.game.winner()}`);
+            for (var i = 0; i < $winners.length; i++) {
+              let temp = $winners.eq(i);
+              temp.removeClass();
+              temp.addClass('winner');
+            }
+            // debugger
+            console.log('$ul');
+          } else {
+            $message = $('<h1>');
+            $message.addClass('message');
+            $message.text(`It's a draw!`);
+            this.$el.append($message);
+          }
+        }
       }
     });
   }
